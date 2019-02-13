@@ -1,0 +1,48 @@
+<!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://www.bdebiere.ch/club/wp-content/uploads/2019/01/exploration_logo.png" width="20" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="form"  (ngSubmit)="login()">
+      <div class="form-group">
+        <input formControlName="username" type="text" class="fadeIn second" placeholder="User">
+      </div>
+      <div *ngIf="form.controls['username'].invalid && (form.controls['username'].touched || form.controls['username'].dirty)" class="alert alert-danger">
+        <div *ngIf="form.controls['username'].errors.required">
+          Person Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <input formControlName="email" type="text" class="fadeIn third" placeholder="Email">
+      </div>
+      <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="form.controls['email'].errors.required">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <!--<input type="submit" class="fadeIn fourth" value="Log In"-->
+               <!--(click)="login(username, email)"-->
+               <!--[disabled]="form.pristine || form.invalid">-->
+        <input type="submit" class="fadeIn fourth" value="Log In"
+               [disabled]="form.pristine || form.invalid">
+      </div>
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
